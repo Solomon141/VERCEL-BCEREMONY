@@ -18,20 +18,16 @@ async function SendConfirmationMail(toEmail, vkey) {
     });
   });
 
-  let info = await new Promise((resolve, reject) => {
+  let Mailinfo = await new Promise((resolve, reject) => {
     // send mail
     transporter.sendMail(
       {
         from: 'badreg_info@badregplc.com',
         to: [toEmail],
-        subject: 'Confirm Registration',
-        text: 'a company you will like forever?',
-        html: `<div> <h3> Confirm Your Account </h3> <p> Thanks for signing up to BadregPLC! You must follow this link within 3 days of registration to activate your account. <p/>
-             <a href="https://newweb.badregplc.com/verify/${vkey}">Click this link to verify</a> 
-             <p> Have fun, and don't hesitate to contact us with your feedback. </p>
-             <Image src="https://static.callbell.eu/uploads/widget_configuration/brand_image/91080/Logo.jpg" />
-             <p> The Badreg PLC IT Department! https://www.badregplc.com </p>
-         </div>`,
+        subject: 'BADREG PLC',
+        text: 'Dear all Dermatologists?',
+        html: `<div> <h3> Than you for Registering </h3> 
+             <Image src="https://static.callbell.eu/uploads/widget_configuration/brand_image/91080/Logo.jpg" /> </div>`,
       },
       (err, info) => {
         if (err) {
@@ -58,7 +54,7 @@ async function SendConfirmationMail(toEmail, vkey) {
   //        </div>`,
   // });
 
-  console.log('Message sent: %s', info.messageId);
+  console.log('Message sent: %s', Mailinfo.messageId);
 }
 
 module.exports = SendConfirmationMail;
